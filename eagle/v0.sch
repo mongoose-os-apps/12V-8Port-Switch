@@ -6121,6 +6121,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R17" library="SparkFun-Resistors" deviceset="0.05OHM" device="-2512-3W-1%" value="0.01R"/>
 <part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-A4L" device=""/>
 <part name="FRAME2" library="SparkFun-Aesthetics" deviceset="FRAME-A4L" device=""/>
+<part name="SUPPLY9" library="SparkFun-PowerSymbols" deviceset="VCCIO" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6301,9 +6302,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="SUPPLY11" gate="G$1" x="76.2" y="81.28" smashed="yes">
 <attribute name="VALUE" x="76.2" y="84.074" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="PWR" gate="G$1" x="66.04" y="93.98" smashed="yes" rot="R90">
-<attribute name="NAME" x="70.612" y="97.536" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="70.612" y="99.695" size="1.778" layer="96" rot="R180"/>
+<instance part="PWR" gate="G$1" x="68.58" y="93.98" smashed="yes" rot="R270">
+<attribute name="NAME" x="64.008" y="90.424" size="1.778" layer="95"/>
+<attribute name="VALUE" x="64.008" y="88.265" size="1.778" layer="96"/>
 </instance>
 <instance part="R11" gate="G$1" x="55.88" y="93.98" smashed="yes" rot="R180">
 <attribute name="NAME" x="55.88" y="92.456" size="1.778" layer="95" font="vector" rot="R180" align="bottom-center"/>
@@ -6328,6 +6329,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <attribute name="LAST_DATE_TIME" x="181.61" y="6.35" size="2.286" layer="94" font="vector"/>
 <attribute name="SHEET" x="195.58" y="1.27" size="2.54" layer="94" font="vector"/>
 <attribute name="DESIGNER" x="226.26" y="6.35" size="2.54" layer="94" font="vector"/>
+</instance>
+<instance part="SUPPLY9" gate="G$1" x="76.2" y="93.98" smashed="yes">
+<attribute name="VALUE" x="76.2" y="96.774" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 </instances>
 <busses>
@@ -6653,15 +6657,15 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="SUPPLY11" gate="G$1" pin="VCCIO"/>
 </segment>
 <segment>
-<pinref part="PWR" gate="G$1" pin="C"/>
-<wire x1="71.12" y1="93.98" x2="76.2" y2="93.98" width="0.1524" layer="91"/>
-<label x="76.2" y="93.98" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="U1" gate="G$1" pin="VCC"/>
 <wire x1="104.14" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="83.82" x2="101.6" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="SUPPLY15" gate="G$1" pin="VCCIO"/>
+</segment>
+<segment>
+<pinref part="PWR" gate="G$1" pin="A"/>
+<wire x1="71.12" y1="93.98" x2="76.2" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="SUPPLY9" gate="G$1" pin="VCCIO"/>
 </segment>
 </net>
 <net name="SDA" class="0">
@@ -6676,13 +6680,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U1" gate="G$1" pin="SCL"/>
 <wire x1="104.14" y1="78.74" x2="101.6" y2="78.74" width="0.1524" layer="91"/>
 <label x="101.6" y="78.74" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="N$17" class="0">
-<segment>
-<pinref part="PWR" gate="G$1" pin="A"/>
-<pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="63.5" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VCCIN" class="0">
@@ -6702,6 +6699,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="15.24" y1="60.96" x2="17.78" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="60.96" x2="17.78" y2="58.42" width="0.1524" layer="91"/>
 <label x="15.24" y="55.88" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$17" class="0">
+<segment>
+<pinref part="R11" gate="G$1" pin="1"/>
+<pinref part="PWR" gate="G$1" pin="C"/>
+<wire x1="63.5" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
