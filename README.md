@@ -50,4 +50,6 @@ Using the Mongoose OS [RPC Subsystem](https://github.com/mongoose-os-libs/rpc-co
 
 By default, HTTP endpoints are provided for metrics and RPCs, which can be a security hazard. For non-trusted wifi environments, we allow allow the device to close all serving ports and service RPCs via [Pubsub](https://github.com/mongoose-os-libs/mqtt) using TLS connections to a remote [Mosquitto](https://mosquitto.org/) endpoint. Metrics can be pushed via POST requests to a Prometheus [pushgateway](https://github.com/prometheus/pushgateway).
 
+Firmware updates can be performed [over-the-air](https://github.com/mongoose-os-libs/ota-http-client), using both HTTP as well as MQTT transport.
+
 ### API
