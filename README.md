@@ -9,7 +9,9 @@ sensor (based on INA219) to measure total current through the device.
 
 ![PCB](eagle/v0-top.png)
 
-The schematic and board layout are in the [eagle/](eagle/) directory.
+The schematic and board layout are in the [eagle/](eagle/) directory. You can order
+this board from [Oshpark](https://oshpark.com/shared_projects/42dmo9fg).
+
 Logical components in the hardware are:
 
 *   An LDO that steps down 12V input to 3.3V, with power LED
