@@ -26,8 +26,12 @@ filesystem:
 config_schema:
   - ["wifi.ap.enable", false]
   - ["wifi.sta.enable", true]
-  - ["wifi.sta.ssid", "Dapches IOT"] # Set your Wifi SSID here
+  - ["wifi.sta.ssid", "dapches-iot"] # Set your Wifi SSID here
   - ["wifi.sta.pass", "marielle"] # Set your WiFi password here
+  - ["i2c.enable", true]
+  - ["i2c.sda_gpio", 12]
+  - ["i2c.scl_gpio", 14]
+
 
 # List of libraries used by this app, in order of initialisation
 libs:
@@ -38,8 +42,11 @@ libs:
   - origin: https://github.com/mongoose-os-libs/rpc-common
   - origin: https://github.com/mongoose-os-libs/rpc-service-config
   - origin: https://github.com/mongoose-os-libs/rpc-service-fs
+  - origin: https://github.com/mongoose-os-libs/rpc-service-i2c
+  - origin: https://github.com/mongoose-os-libs/rpc-service-ota
   - origin: https://github.com/mongoose-os-libs/rpc-uart
   - origin: https://github.com/mongoose-os-libs/rpc-mqtt
+  - origin: https://github.com/mongoose-os-libs/rpc-ws
   - origin: https://github.com/mongoose-os-libs/prometheus-metrics
   - origin: https://github.com/mongoose-os-libs/ina219-i2c
   - origin: https://github.com/mongoose-os-libs/mcp23xxx
