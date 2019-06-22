@@ -36,6 +36,11 @@ bool channel_toggle(int channel) {
   return channel_set(channel, !state);
 }
 
+static void channel_status(void *arg) {
+  mgos_mcp23xxx_print_state(s_gpio);
+  (void)arg;
+}
+
 bool channel_init(void) {
   int i;
 
@@ -45,11 +50,11 @@ bool channel_init(void) {
     LOG(LL_ERROR, ("Could not create MCP23008"));
     return false;
   }
-  LOG(LL_INFO, ("Polling MCP23008 state"));
-  mgos_mcp23xxx_print_state(s_gpio);
 
   for (i = 0; i < 8; i++)
     mgos_mcp23xxx_gpio_set_mode(s_gpio, i, MGOS_GPIO_MODE_OUTPUT);
+
+  mgos_set_timer(5000, true, channel_status, NULL);
 
   return true;
 }
