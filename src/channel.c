@@ -38,7 +38,7 @@ bool channel_toggle(int channel) {
 
 static void channel_status(void *arg) {
   mgos_mcp23xxx_print_state(s_gpio);
-  (void)arg;
+  (void) arg;
 }
 
 bool channel_init(void) {

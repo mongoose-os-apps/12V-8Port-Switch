@@ -31,6 +31,21 @@ config_schema:
   - ["i2c.enable", true]
   - ["i2c.sda_gpio", 12]
   - ["i2c.scl_gpio", 14]
+# Channels will be probed in order: GPIO, MCP23008, MCP23017, PCF8574, PCF8575
+  - ["channels", "o", {title: "Channel configuration"}]
+  - ["channels.gpio", "s", "", {title: "List of GPIO(s), empty if unused"}]
+  - ["channels.mcp23008", "s", "", {title: "List of I2C Address(es), empty if unused"}]
+  - ["channels.mcp23017", "s", "", {title: "List of I2C Address(es), empty if unused"}]
+  - ["channels.pcf8574", "s", "", {title: "List of I2C Address(es), empty if unused"}]
+  - ["channels.pcf8575", "s", "", {title: "List of I2C Address(es), empty if unused"}]
+# Sensors will be probed in order: INA219, INA3221
+  - ["sensors", "o", {title: "Sensor configuration"}]
+  - ["sensors.ina219", "s", "", {title: "List of I2C Address(es), empty if unused"}]
+  - ["sensors.ina3221", "s", "", {title: "List of I2C Address(es), empty if unused"}]
+# Default configuration.
+  - ["channels.gpio", "4,5"]
+  - ["channels.mcp23008", "0x20"]
+  - ["sensors.ina219", "0x40"]
 
 
 # List of libraries used by this app, in order of initialisation
@@ -44,12 +59,15 @@ libs:
   - origin: https://github.com/mongoose-os-libs/rpc-service-fs
   - origin: https://github.com/mongoose-os-libs/rpc-service-i2c
   - origin: https://github.com/mongoose-os-libs/rpc-service-ota
+  - origin: https://github.com/mongoose-os-libs/rpc-service-gpio
   - origin: https://github.com/mongoose-os-libs/rpc-uart
   - origin: https://github.com/mongoose-os-libs/rpc-mqtt
   - origin: https://github.com/mongoose-os-libs/rpc-ws
   - origin: https://github.com/mongoose-os-libs/prometheus-metrics
   - origin: https://github.com/mongoose-os-libs/ina219-i2c
+  - origin: https://github.com/mongoose-os-libs/ina3221-i2c
   - origin: https://github.com/mongoose-os-libs/mcp23xxx
+  - origin: https://github.com/mongoose-os-libs/pcf857x-i2c
 
 # Used by the mos tool to catch mos binaries incompatible with this file format
 manifest_version: 2017-05-18
